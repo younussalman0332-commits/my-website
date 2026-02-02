@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Proposal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ff69b4, #ffb6c1);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .question {
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #yesBtn {
+            background-color: #ff1493;
+            color: white;
+        }
+        #yesBtn:hover {
+            background-color: #ff69b4;
+        }
+        #noBtn {
+            background-color: #dc143c;
+            color: white;
+            position: relative;
+        }
+        #noBtn:hover {
+            background-color: #b22222;
+        }
+        .success {
+            display: none;
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        .heart {
+            font-size: 5em;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Samiya naeem</h1>
+    <div class="heart">❤️</div>
+    <div class="question">Will you be my valentine?</div>
+    <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+    <div class="success" id="successMsg">Best decision, You are the love of my life🥰🥰</div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const successMsg = document.getElementById('successMsg');
+        const question = document.querySelector('.question');
+        const buttons = document.querySelector('.buttons');
+
+        let noClickCount = 0;
+        const noMessages = [
+            "You sure?",
+            "No way!",
+            "Think again!",
+            "Are you positive?",
+            "Last chance!",
+            "Come on, say yes! 💕"
+        ];
+
+        noBtn.addEventListener('click', () => {
+            // Change the "No" button text
+            noBtn.textContent = noMessages[noClickCount % noMessages.length];
+            noClickCount++;
+
+            // Move the "No" button to a random position
+            const maxX = window.innerWidth - noBtn.offsetWidth;
+            const maxY = window.innerHeight - noBtn.offsetHeight;
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            // Hide question and buttons, show success message
+            question.style.display = 'none';
+            buttons.style.display = 'none';
+            successMsg.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
