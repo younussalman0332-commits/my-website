@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Proposal</title>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <title>Surprise Awaits!</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -20,51 +19,27 @@
             align-items: center;
         }
         h1 {
-            font-size: 3em;
-            font-weight: bold;
+            font-size: 2.5em;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        .question {
-            font-size: 2em;
-            margin-bottom: 40px;
-        }
-        .buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
         button {
             font-size: 1.5em;
-            padding: 15px 30px;
+            padding: 20px 40px;
             border: none;
-            border-radius: 10px;
+            border-radius: 15px;
+            background-color: #ffd700;
+            color: #333;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: bold;
         }
-        #yesBtn {
-            background-color: #ff1493;
-            color: white;
-        }
-        #yesBtn:hover {
-            background-color: #ff69b4;
-        }
-        #noBtn {
-            background-color: #dc143c;
-            color: white;
-            position: relative;
-        }
-        #noBtn:hover {
-            background-color: #b22222;
-        }
-        .success {
-            display: none;
-            font-size: 2em;
-            margin-top: 20px;
+        button:hover {
+            background-color: #ffed4e;
+            transform: scale(1.05);
         }
         .heart {
-            font-size: 5em;
+            font-size: 4em;
             animation: pulse 2s infinite;
         }
         @keyframes pulse {
@@ -72,87 +47,12 @@
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
-        #surpriseBtn {
-            background-color: #ffd700;
-            color: #333;
-            font-weight: bold;
-        }
-        #surpriseBtn:hover {
-            background-color: #ffed4e;
-        }
-        .surprise-msg {
-            display: none;
-            font-size: 1.5em;
-            margin-top: 20px;
-            animation: fadeIn 1s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
     </style>
 </head>
 <body>
-    <h1>Samiya naeem</h1>
+    <h1>Hey Samiya naeem! 💖</h1>
     <div class="heart">❤️</div>
-    <div class="question">Will you be my valentine?</div>
-    <div class="buttons">
-        <button id="yesBtn">Yes</button>
-        <button id="noBtn">No</button>
-    </div>
-    <div class="success" id="successMsg">Best decision, You are the love of my life🥰🥰</div>
-    <button id="surpriseBtn">Click here for a surprise! 🎉</button>
-    <div class="surprise-msg" id="surpriseMsg">Surprise! You're the best thing that's ever happened to me! 💖✨</div>
-
-    <script>
-        const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
-        const successMsg = document.getElementById('successMsg');
-        const question = document.querySelector('.question');
-        const buttons = document.querySelector('.buttons');
-        const surpriseBtn = document.getElementById('surpriseBtn');
-        const surpriseMsg = document.getElementById('surpriseMsg');
-
-        let noClickCount = 0;
-        const noMessages = [
-            "You sure?",
-            "No way!",
-            "Think again!",
-            "Are you positive?",
-            "Last chance!",
-            "Come on, say yes! 💕"
-        ];
-
-        noBtn.addEventListener('click', () => {
-            noBtn.textContent = noMessages[noClickCount % noMessages.length];
-            noClickCount++;
-            const maxX = window.innerWidth - noBtn.offsetWidth;
-            const maxY = window.innerHeight - noBtn.offsetHeight;
-            const randomX = Math.random() * maxX;
-            const randomY = Math.random() * maxY;
-            noBtn.style.position = 'absolute';
-            noBtn.style.left = `${randomX}px`;
-            noBtn.style.top = `${randomY}px`;
-        });
-
-        yesBtn.addEventListener('click', () => {
-            question.style.display = 'none';
-            buttons.style.display = 'none';
-            successMsg.style.display = 'block';
-        });
-
-        surpriseBtn.addEventListener('click', () => {
-            // Trigger confetti
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
-            // Show surprise message
-            surpriseMsg.style.display = 'block';
-            // Hide the button after click (optional)
-            surpriseBtn.style.display = 'none';
-        });
-    </script>
+    <p>I've got something special for you...</p>
+    <button onclick="window.location.href='https://younussalman0332-commits.github.io/my-website/'">Click here for surprise!</button>
 </body>
 </html>
